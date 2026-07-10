@@ -1,10 +1,12 @@
 secret_number = 7
-guess = int(input("Guess a number: "))
-print(f"You guessed {guess}")
 
-if guess == secret_number:
-    print("Correct!")
-elif guess > secret_number:
-    print("Too Hight!")
-else:
-    print("Too Low!")
+while True:
+    guess = int(input("Guess a number: "))
+
+    if guess == secret_number:
+        print("Correct!")
+        break
+    elif guess > secret_number:
+        print("Too High!")
+    else:
+        print("Too Low!")
