@@ -1,0 +1,5 @@
+import random
+names = ["zuhra", "shakir", "maryam"]
+choice = random.choice(names)
+print(f"Selected student: {choice}")
+
