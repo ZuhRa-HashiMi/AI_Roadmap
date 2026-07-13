@@ -1,5 +1,6 @@
 import json
 
+
 def load_contacts():
     try:
         with open("contacts.json", "r") as file:
@@ -9,6 +10,7 @@ def load_contacts():
 
 
 contacts = load_contacts()
+
 
 def add_contact():
     name = input("Enter name: ")
@@ -56,8 +58,24 @@ def save_contacts():
     print("Contacts saved successfully!")
 
 
-add_contact()
-view_contacts()
-search_contact()
-save_contacts()
-load_contacts()
+while True:
+    print("\nContact Book Menu")
+    print("1. Add contact")
+    print("2. View contacts")
+    print("3. Search contact")
+    print("4. Exit")
+
+    choice = input("Choose an option: ")
+
+    if choice == "1":
+        add_contact()
+    elif choice == "2":
+        view_contacts()
+    elif choice == "3":
+        search_contact()
+    elif choice == "4":
+        save_contacts()
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please choose 1, 2, 3, or 4.")
