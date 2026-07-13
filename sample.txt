@@ -1,0 +1,3 @@
+python is fun
+python is usful for AI
+AI use Python
