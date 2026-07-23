@@ -1,0 +1,73 @@
+def rotate_90_clockwise(matrix):
+    n = len(matrix)
+
+    # Step 1: transpose the matrix
+    for i in range(n):
+        for j in range(i + 1, n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+    # Step 2: reverse each row
+    for row in matrix:
+        row.reverse()
+
+    return matrix
+
+def spiral_order(matrix):
+    result = []
+
+    if len(matrix) == 0:
+        return result
+
+    top = 0
+    bottom = len(matrix) - 1
+
+    left = 0
+    right = len(matrix[0]) - 1
+
+    while top <= bottom and left <= right:
+
+        # move left to right
+        for col in range(left, right + 1):
+            result.append(matrix[top][col])
+        top += 1
+
+        # move top to bottom
+        for row in range(top, bottom + 1):
+            result.append(matrix[row][right])
+        right -= 1
+
+        # move right to left
+        if top <= bottom:
+            for col in range(right, left - 1, -1):
+                result.append(matrix[bottom][col])
+            bottom -= 1
+
+        # move bottom to top
+        if left <= right:
+            for row in range(bottom, top - 1, -1):
+                result.append(matrix[row][left])
+            left += 1
+
+    return result
+
+matrix1 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print("Rotated matrix:")
+rotated = rotate_90_clockwise(matrix1)
+
+for row in rotated:
+    print(row)
+
+
+matrix2 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print("Spiral order:")
+print(spiral_order(matrix2))
