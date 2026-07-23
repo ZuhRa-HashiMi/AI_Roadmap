@@ -19,3 +19,25 @@ A = [
 ]
 
 print(transpose(A))
+
+def matvec(A, v):
+    result = []
+    
+    for row in A:
+        total = 0
+        
+        for i in range(len(v)):
+            total += row[i] * v[i]
+            
+        result.append(total)
+        
+    return result 
+
+A = [
+    [1, 2],
+    [3, 4]
+    
+]
+
+v = [5, 6]
+print(matvec(A, v))
