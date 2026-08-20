@@ -32,3 +32,16 @@ for name, f, exact_derivative, x in tests:
             f"numerical={numerical:.12f}, "
             f"error={error:.3e}"
         )
+        
+
+def sigmoid(x):
+    return 1 / (1 + math.exp(-x))
+
+def sigmoid_derivative(x):
+    s = sigmoid(x)
+    return s * (1 - s)
+
+x = 1
+
+print(sigmoid(x))
+print(sigmoid_derivative(x))
